@@ -6,7 +6,7 @@
 /*   By: ynadime <ynadime@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 13:44:09 by ynadime           #+#    #+#             */
-/*   Updated: 2025/03/02 15:41:07 by ynadime          ###   ########.fr       */
+/*   Updated: 2025/03/03 12:29:16 by ynadime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	send_char(int pid, char character)
 		{
 			if (kill(pid, SIGUSR1) == -1)
 			{
-				ft_printf("Error\nFailed while sending message!");
+				ft_printf("Failed while sending the message!\n");
 				exit(1);
 			}
 		}
@@ -31,7 +31,7 @@ void	send_char(int pid, char character)
 		{
 			if (kill(pid, SIGUSR2) == -1)
 			{
-				ft_printf("Error\nFailed while sending message!");
+				ft_printf("Failed while sending the message!\n");
 				exit(1);
 			}
 		}
@@ -57,14 +57,14 @@ int	main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		ft_printf("Error\nInvalid number of arguments!");
+		ft_printf("Error\nInvalid number of arguments!\n");
 		exit(1);
 	}
 	pid = ft_atoi(av[1]);
 	message = av[2];
 	if (pid <= 0 || pid > 4194304)
 	{
-		ft_printf("Invalid PID!");
+		ft_printf("Invalid PID!\n");
 		exit(1);
 	}
 	send_message(pid, message);

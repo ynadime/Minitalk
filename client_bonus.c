@@ -6,7 +6,7 @@
 /*   By: ynadime <ynadime@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 13:44:00 by ynadime           #+#    #+#             */
-/*   Updated: 2025/03/02 15:39:49 by ynadime          ###   ########.fr       */
+/*   Updated: 2025/03/03 12:29:51 by ynadime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	send_char(int pid, char character)
 		{
 			if (kill(pid, SIGUSR1) == -1)
 			{
-				ft_printf("Error\nFailed while sending message!");
+				ft_printf("Failed while sending the message!\n");
 				exit(1);
 			}
 		}
@@ -31,7 +31,7 @@ void	send_char(int pid, char character)
 		{
 			if (kill(pid, SIGUSR2) == -1)
 			{
-				ft_printf("Error\nFailed while sending message!");
+				ft_printf("Failed while sending the message!\n");
 				exit(1);
 			}
 		}
@@ -53,7 +53,7 @@ void	send_message(int pid, char *message)
 void	handle_ack(int sig)
 {
 	if (sig == SIGUSR1)
-		ft_printf("Acknowledgment received!");
+		ft_printf("Acknowledgment received!\n");
 }
 
 int	main(int ac, char **av)
@@ -63,7 +63,7 @@ int	main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		ft_printf("Error\nInvalid number of arguments!");
+		ft_printf("Invalid number of arguments!\n");
 		exit(1);
 	}
 	signal(SIGUSR1, handle_ack);
@@ -71,7 +71,7 @@ int	main(int ac, char **av)
 	message = av[2];
 	if (pid <= 0 || pid > 4194304)
 	{
-		ft_printf("Invalid PID!");
+		ft_printf("Invalid PID!\n");
 		exit(1);
 	}
 	send_message(pid, message);

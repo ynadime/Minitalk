@@ -6,7 +6,7 @@
 /*   By: ynadime <ynadime@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 13:43:33 by ynadime           #+#    #+#             */
-/*   Updated: 2025/03/02 14:49:46 by ynadime          ###   ########.fr       */
+/*   Updated: 2025/03/03 12:27:48 by ynadime          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int ac, char **av)
 	(void)av;
 	if (ac != 1)
 	{
-		ft_printf("Error\nUse just ./server!");
+		ft_printf("Usage: ./server\n");
 		exit(1);
 	}
 	sa.sa_sigaction = handle_signal;
